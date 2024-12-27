@@ -1,80 +1,96 @@
+/* 設定整體頁面背景顏色和文字顏色 */
 body {
-  background: #fafafa;
-  color: #333333;
-  margin-top: 5rem;
+  background: #fafafa;  /* 淺灰色背景 */
+  color: #333333;       /* 深灰色文字 */
+  margin-top: 5rem;      /* 頁面頂部的空間 */
 }
 
+/* 設定所有標題 h1 到 h6 的文字顏色 */
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #444444;  /* 暗灰色文字 */
 }
 
+/* 設定 .bg-steel 類別的背景顏色 */
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #5f788a;  /* 鋼灰色背景 */
 }
 
+/* 設定導航列中連結的顏色 */
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #cbd5db;  /* 淺灰藍色文字 */
 }
 
+/* 設定導航列中連結在 hover 狀態下的顏色 */
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #ffffff;  /* 白色文字 */
 }
 
+/* 設定導航列中被選中的連結 */
 .site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
+  font-weight: 500;  /* 設定活躍連結的字重 */
 }
 
+/* 設定內容區塊的樣式 */
 .content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+  background: #ffffff;  /* 白色背景 */
+  padding: 10px 20px;    /* 內邊距 */
+  border: 1px solid #dddddd; /* 灰色邊框 */
+  border-radius: 3px;    /* 邊角圓角 */
+  margin-bottom: 20px;    /* 底部間距 */
 }
 
+/* 設定文章標題的顏色 */
 .article-title {
-  color: #444444;
+  color: #444444;  /* 暗灰色文字 */
 }
 
+/* 設定文章標題在 hover 狀態下的樣式 */
 a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
+  color: #428bca;     /* 藍色文字 */
+  text-decoration: none;  /* 移除下劃線 */
 }
 
+/* 設定文章內容顯示空白字符的方式 */
 .article-content {
-  white-space: pre-line;
+  white-space: pre-line;  /* 保持換行和空白字符 */
 }
 
+/* 設定文章圖片的大小 */
 .article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
+  height: 65px;       /* 高度設為 65px */
+  width: 65px;        /* 寬度設為 65px */
+  margin-right: 16px;  /* 右邊距 */
 }
 
+/* 設定文章的元數據區域樣式 */
 .article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
+  padding-bottom: 1px;  /* 底部內邊距 */
+  margin-bottom: 4px;   /* 底部外邊距 */
+  border-bottom: 1px solid #e3e3e3; /* 底部邊框 */
 }
 
+/* 設定文章元數據中鏈接在 hover 狀態下的顏色 */
 .article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
+  color: #333;       /* 深灰色文字 */
+  text-decoration: none;  /* 移除下劃線 */
 }
 
+/* 設定文章中使用的 SVG 圖標大小 */
 .article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
+  width: 25px;   /* 寬度設為 25px */
+  height: 25px;  /* 高度設為 25px */
+  vertical-align: middle;  /* 垂直居中對齊 */
 }
 
+/* 設定帳戶頁面中圖片的大小 */
 .account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+  height: 125px;    /* 高度設為 125px */
+  width: 125px;     /* 寬度設為 125px */
+  margin-right: 20px;  /* 右邊距 */
+  margin-bottom: 16px; /* 底部間距 */
 }
 
+/* 設定帳戶頁面標題的字體大小 */
 .account-heading {
-  font-size: 2.5rem;
+  font-size: 2.5rem;  /* 設定大字號 */
 }

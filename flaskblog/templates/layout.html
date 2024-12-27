@@ -11,68 +11,67 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     {% if title %}
-        <title>Flask Blog - {{ title }}</title>
+        <title>Flask Blog - {{ title }}</title> <!-- 動態設定標題，如果未提供則使用預設標題 -->
     {% else %}
-        <title>Flask Blog</title>
+        <title>Flask Blog</title> <!-- 預設標題 -->
     {% endif %}
 </head>
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="/">Flask Blog</a>
+    <header class="site-header"> <!-- 頁面標頭 -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top"> <!-- 導覽列 -->
+        <div class="container"> <!-- 限制導覽列內容的寬度 -->
+          <a class="navbar-brand mr-4" href="/">Flask Blog</a> <!-- 網站名稱連結至首頁 -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span> <!-- 手機版展開按鈕 -->
           </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+          <div class="collapse navbar-collapse" id="navbarToggle"> <!-- 可折疊的導覽列 -->
+            <div class="navbar-nav mr-auto"> <!-- 導覽列左側連結 -->
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a> <!-- 首頁連結 -->
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a> <!-- 關於頁連結 -->
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+            <div class="navbar-nav"> <!-- 導覽列右側連結 -->
+              {% if current_user.is_authenticated %} <!-- 檢查使用者是否已登入 -->
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a> <!-- 帳戶頁連結 -->
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a> <!-- 登出連結 -->
+              {% else %} <!-- 如果未登入 -->
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a> <!-- 登入連結 -->
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a> <!-- 註冊連結 -->
               {% endif %}
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
-          {% with messages = get_flashed_messages(with_categories=true) %}
+    <main role="main" class="container"> <!-- 主要內容區 -->
+      <div class="row"> <!-- 定義主要版面配置 -->
+        <div class="col-md-8"> <!-- 主要內容區域 -->
+          {% with messages = get_flashed_messages(with_categories=true) %} <!-- 顯示 Flask 的 flash 訊息 -->
             {% if messages %}
-              {% for category, message in messages %}
+              {% for category, message in messages %} <!-- 遍歷所有訊息 -->
                 <div class="alert alert-{{ category }}">
-                  {{ message }}
+                  {{ message }} <!-- 顯示訊息內容 -->
                 </div>
               {% endfor %}
             {% endif %}
           {% endwith %}
-          {% block content %}{% endblock %}
+          {% block content %}{% endblock %} <!-- 內容區塊，供其他模板繼承 -->
         </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+        <div class="col-md-4"> <!-- 側邊欄區域 -->
+          <div class="content-section"> <!-- 側邊欄內容分區 -->
+            <h3>Our Sidebar</h3> <!-- 側邊欄標題 -->
+            <p class='text-muted'>You can put any information here you'd like. <!-- 側邊欄描述 -->
+              <ul class="list-group"> <!-- 側邊欄清單 -->
+                <li class="list-group-item list-group-item-light">Latest Posts</li> <!-- 最新文章 -->
+                <li class="list-group-item list-group-item-light">Announcements</li> <!-- 公告 -->
+                <li class="list-group-item list-group-item-light">Calendars</li> <!-- 日曆 -->
+                <li class="list-group-item list-group-item-light">etc</li> <!-- 其他項目 -->
               </ul>
             </p>
           </div>
         </div>
       </div>
     </main>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

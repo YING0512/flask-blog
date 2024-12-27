@@ -1,15 +1,16 @@
-{% extends "layout.html" %}
-{% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted }}</small>
+{% extends "layout.html" %} <!-- 繼承 layout.html 的結構與樣式 -->
+
+{% block content %} <!-- 定義此區塊的內容，替代 layout.html 中的 content 區塊 -->
+    {% for post in posts %} <!-- 遍歷所有的帖子 -->
+        <article class="media content-section"> <!-- 單篇文章內容 -->
+            <div class="media-body"> <!-- 文章主要內容 -->
+                <div class="article-metadata"> <!-- 文章的元數據，如作者和發佈時間 -->
+                    <a class="mr-2" href="#">{{ post.author }}</a> <!-- 作者名稱及其連結 -->
+                    <small class="text-muted">{{ post.date_posted }}</small> <!-- 發佈日期 -->
+                </div>
+                <h2><a class="article-title" href="#">{{ post.title }}</a></h2> <!-- 文章標題 -->
+                <p class="article-content">{{ post.content }}</p> <!-- 文章內容 -->
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2> 
-            <p class="article-content">{{ post.content }}</p>
-          </div>
         </article>
-    {% endfor %}
-{% endblock content %}
+    {% endfor %} <!-- 結束帖子遍歷 -->
+{% endblock content %} <!-- 區塊內容結束 -->

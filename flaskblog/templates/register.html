@@ -1,26 +1,32 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div class="content-section">
-        <form method="POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                <div class="form-group">
-                    {{ form.username.label(class="form-control-label") }}
+{% extends "layout.html" %} <!-- 繼承 layout.html 模板，這樣可以重用頁面的基本結構 -->
 
-                    {% if form.username.errors %}
-                        {{ form.username(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
+{% block content %} <!-- 開始定義 content 區塊 -->
+
+    <div class="content-section">
+        <form method="POST" action=""> <!-- 註冊表單，使用 POST 方法發送資料 -->
+            {{ form.hidden_tag() }} <!-- 渲染隱藏的 CSRF 欄位，用來防止跨站請求偽造攻擊 -->
+
+            <fieldset class="form-group"> <!-- 使用 fieldset 來分組表單元素 -->
+                <legend class="border-bottom mb-4">Join Today</legend> <!-- 標題，顯示註冊標題 -->
+
+                <!-- 使用者名稱輸入欄位 -->
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }} <!-- 顯示使用者名稱的標籤 -->
+                    {% if form.username.errors %} <!-- 如果有錯誤 -->
+                        {{ form.username(class="form-control form-control-lg is-invalid") }} <!-- 顯示帶有錯誤樣式的輸入框 -->
+                        <div class="invalid-feedback"> <!-- 顯示錯誤訊息 -->
                             {% for error in form.username.errors %}
-                                <span>{{ error }}</span>
+                                <span>{{ error }}</span> <!-- 顯示每個錯誤訊息 -->
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username(class="form-control form-control-lg") }}
+                        {{ form.username(class="form-control form-control-lg") }} <!-- 如果沒有錯誤，正常顯示輸入框 -->
                     {% endif %}
                 </div>
+
+                <!-- 電子郵件輸入欄位 -->
                 <div class="form-group">
-                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email.label(class="form-control-label") }} <!-- 顯示電子郵件的標籤 -->
                     {% if form.email.errors %}
                         {{ form.email(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -32,8 +38,10 @@
                         {{ form.email(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+
+                <!-- 密碼輸入欄位 -->
                 <div class="form-group">
-                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password.label(class="form-control-label") }} <!-- 顯示密碼的標籤 -->
                     {% if form.password.errors %}
                         {{ form.password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -45,8 +53,10 @@
                         {{ form.password(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+
+                <!-- 確認密碼輸入欄位 -->
                 <div class="form-group">
-                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {{ form.confirm_password.label(class="form-control-label") }} <!-- 顯示確認密碼的標籤 -->
                     {% if form.confirm_password.errors %}
                         {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -59,14 +69,19 @@
                     {% endif %}
                 </div>
             </fieldset>
+
+            <!-- 提交按鈕 -->
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.submit(class="btn btn-outline-info") }} <!-- 顯示提交按鈕 -->
             </div>
         </form>
     </div>
+
+    <!-- 註冊頁面底部，包含已經有帳號的用戶登錄連結 -->
     <div class="border-top pt-3">
         <small class="text-muted">
-            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a> <!-- 提供登錄的連結 -->
         </small>
     </div>
-{% endblock content %}
+
+{% endblock content %} <!-- 結束 content 區塊 -->
